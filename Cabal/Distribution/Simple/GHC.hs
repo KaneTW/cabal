@@ -1355,7 +1355,7 @@ gbuild verbosity numJobs pkg_descr lbi bm clbi = do
               `mappend` mempty {
                  ghcOptLinkNoHsMain    = toFlag True,
                  ghcOptShared          = toFlag True,
-                 ghcOptLinkLibs        = rtsOptLinkLibs,
+                 ghcOptLinkLibs        = toNubListR rtsOptLinkLibs,
                  ghcOptLinkLibPath     = toNubListR $ rtsLibPaths rtsInfo,
                  ghcOptFPic            = toFlag True,
                  ghcOptLinkModDefFiles = toNubListR $ gbuildModDefFiles bm
